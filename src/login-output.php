@@ -1,5 +1,7 @@
 <?php session_start();?>
+<?php require 'db-connect.php'; ?>
 <?php
+$msg='';
     unset($_SESSION['User']);
     $pdo=new PDO($connect,USER,PASS);
     $sql=$pdo->prepare('select * from User where user_id=?');
@@ -12,5 +14,8 @@
         }
     }
 if(isset($_SESSION['User'])){
-    
+    echo '<a href="toppage.php">';
+}else{
+    $msg='<div class ="error"><p>ログインIDまたはパスワードが違います。</p></div>';
 }
+?>
