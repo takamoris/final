@@ -7,15 +7,15 @@ $msg='';
     $sql=$pdo->prepare('select * from User where user_id=?');
     $sql->execute([$_POST['id']]);
     foreach($sql as $row){
-        if($row["pass"]==$_POST['password']){
+        if($_POST['pass']==$row['password']){
             $_SESSION['User']=[
                 'id'=>$row['user_id'],'password'=>$row['password']
             ];
         }
     }
 if(isset($_SESSION['User'])){
-    echo '<a href="toppage.php">';
+    echo '<a href="top-page.php"></a>';
 }else{
-    $msg='<div class ="error"><p>ログインIDまたはパスワードが違います。</p></div>';
+    $msg='ログインIDまたはパスワードが違います';
 }
 ?>
