@@ -14,8 +14,9 @@ $msg='';
         }
     }
 if(isset($_SESSION['User'])){
-    echo '<a href="top-page.php"></a>';
+    header('Location:./top-page.php');
+     exit;   
 }else{
-    $msg='ログインIDまたはパスワードが違います';
+    echo $msg='ログインIDまたはパスワードが違います';
 }
 ?>
