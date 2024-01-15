@@ -4,3 +4,5 @@
 氏名 :高森柊汰
 システム名 :イベント管理システム
 URL : https://aso2201367.main.jp/php2/final/src/login-input.php
+ログインID :1
+パスワード: pass01 
