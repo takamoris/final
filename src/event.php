@@ -8,7 +8,7 @@
 <hr>
 <?php
     echo '<table>';
-    echo '<tr><th>イベント番号</th><tr>イベント名</tr><tr>説明</tr><tr>場所名</tr><tr>住所</tr><tr>開催日時</tr><tr>終了日時</tr><tr>画像</tr></tr>';
+    echo '<tr><th>イベント番号</th><th>イベント名</th><th>説明</th><th>場所名</th><th>住所</th><th>開催日時</th><th>終了日時</th><th>画像</th></tr>';
     $pdo = new PDO ($connect,USER,PASS);
     if(isset($_POST['keyword'])){
         $sql = $pdo -> prepare('select * from Event where event_name like ?');
@@ -26,7 +26,7 @@
         echo '<td>',$row['address'],'</td>';
         echo '<td>',$row['start_day'],'</td>';
         echo '<td>',$row['finish_day'],'</td>';
-        echo '<td>',$row['img_id'],'</td>';
+        echo '<td>','<img alt "image" src="img/',$row['img_id'],'.png" width="100">','</td>';
         echo '</tr>';
     }
     echo '</table>';
