@@ -1,10 +1,11 @@
 <?php session_start(); ?>
 <?php require 'db-connect.php'; ?>
 <!DOCTYPE html>
-<html>
-    <head>
-        <meta charset="UTF-8">
-    </head>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
     <title>イベント追加</title>
     <body>
         <form action="event-add-output.php" method="POST">
