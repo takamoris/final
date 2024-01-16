@@ -27,7 +27,6 @@
     }catch(PDOException $e){
         exit('データベースに接続できませんでした。'.$e->getMessage());
     }
-         
     ?>
 </body>
 </html> 
