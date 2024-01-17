@@ -21,7 +21,7 @@
             <input type="date" name="s_date">
             <div>終了日時</div>
             <input type="date" name="f_date">
-            <div>画像※.pngで入力してください</div>
+            <div>画像</div>
             <input type="text" name="img">
             <br>
             <input type="submit" value="登録">

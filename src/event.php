@@ -27,6 +27,7 @@
         echo '<td>',$row['start_day'],'</td>';
         echo '<td>',$row['finish_day'],'</td>';
         echo '<td>','<img alt "image" src="img/',$row['img_id'],'.png" width="100">','</td>';
+        echo '<td><a href="event-delete.php?id=',$id,'">削除</a></td>';
         echo '</tr>';
     }
     echo '</table>';
