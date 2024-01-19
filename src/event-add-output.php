@@ -29,5 +29,6 @@
         exit('データベースに接続できませんでした。'.$e->getMessage());
     }
     ?>
+            <a href="top-page.php"><button type="submit">メニューに戻る</button></a>
 </body>
 </html> 

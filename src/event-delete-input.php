@@ -1,30 +1,11 @@
 <?php session_start(); ?>
 <?php require 'db-connect.php'; ?>
-<!DOCTYPE html>
-<html lang="ja">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>イベント一覧</title>
-</head>
-<body>
-<form action="event.php">
-    イベント検索
-    <input type="text" name="keyword">
-    <input type="submit" value="検索">
-</form>
-<hr>
+
 <?php
     echo '<table>';
     echo '<tr><th>イベント番号</th><th>イベント名</th><th>説明</th><th>場所名</th><th>住所</th><th>開催日時</th><th>終了日時</th><th>画像</th></tr>';
     $pdo = new PDO ($connect,USER,PASS);
-    if(isset($_POST['keyword'])){
-        $sql = $pdo -> prepare('select * from Event where event_name like ?');
-        $sql -> execute(['%'.$_POST['keyword'].'%']);
-    }else{
-        $sql = $pdo -> query('select * from Event');
-    }
-    foreach($sql as $row){
+    foreach($pdo->query('select * from Event' )as $row){
         $id = $row ['event_id'];
         echo '<tr>';
         echo '<td>',$id,'</td>';
@@ -35,9 +16,14 @@
         echo '<td>',$row['start_day'],'</td>';
         echo '<td>',$row['finish_day'],'</td>';
         echo '<td>','<img alt "image" src="img/',$row['img_id'],'.png" width="100">','</td>';
-    }
+        echo '<td>';
+        echo '<a href="event-delete-output.php? event_id=',$id,'">削除</a>';
+        echo '</td>';
+        echo '</tr>';
+        echo "\n";
+    }   
+
     echo '</table>';
+    
     ?>
-<a href="top-page.php"><button type="submit">トップページに戻る</button></a>
-</body>
-</html>
+            <a href="top-page.php"><button type="submit">メニューに戻る</button></a>
